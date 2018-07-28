@@ -1,4 +1,13 @@
-## Welcome to GitHub Pages
+## Overview
+
+PASTE provides scalability to concurrent TCP
+connections by system call and I/O batching, multi-core scalability by
+parallel, zero-copy data paths on a multi-queue NIC, and abstractions to build
+storage stacks directly with packet buffers on regular or non-volatile main
+memory.  It utilizes the kernel TCP/IP implementation that supports various
+modern extensions.
+PASTE provides both blocking and busy-polling, as well as protects the system
+from application crash.
 
 You can use the [editor on GitHub](https://github.com/micchie/paste/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
