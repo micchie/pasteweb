@@ -1,11 +1,11 @@
+<!-- Place this tag where you want the button to render. -->
+<a class="github-button" href="https://github.com/micchie/netmap"
+data-icon="octicon-star" aria-label="Star micchie/netmap on GitHub">Star</a>
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Place this tag where you want the button to render. -->
 <a class="github-button" href="https://github.com/micchie" aria-label="Follow
 @micchie on GitHub">Follow @micchie</a>
-<!-- Place this tag where you want the button to render. -->
-<a class="github-button" href="https://github.com/micchie/netmap"
-data-icon="octicon-star" aria-label="Star micchie/netmap on GitHub">Star</a>
 <a
 href="https://twitter.com/intent/tweet?screen_name=michioh&ref_src=twsrc%5Etfw"
 class="twitter-mention-button" data-show-count="false">Tweet to
@@ -112,7 +112,9 @@ on scenario. When reusing the same source and/or destination memory address over
 and over, data copy is indeed cheap as these addresses are already in the CPU
 cache.  But when storing or persisting data, we usually cannot overwrite
 existing contents. Data copy to new location is expensive, causing cache misses
-or evictions.
+or evictions.  We ran PASTE with copying data to the emulated PM, and observed
+373.5K requests per second (RPS) with 50 concurrent TCP connections (not plotted in the
+graph) as opposed to 483.1 K RPS with zero copy.
 
 The second technique is to overlap flushes and request processing.
 Flushing data from CPU caches to (persistent) main memory is expensive operation
