@@ -3,17 +3,24 @@
 data-icon="octicon-star" aria-label="Star micchie/netmap on GitHub">Star</a>
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
+
 <!-- Place this tag where you want the button to render. -->
+<!--
 <a class="github-button" href="https://github.com/micchie" aria-label="Follow
 @micchie on GitHub">Follow @micchie</a>
+-->
+
 <a
 href="https://twitter.com/intent/tweet?screen_name=michioh&ref_src=twsrc%5Etfw"
 class="twitter-mention-button" data-show-count="false">Tweet to
 @michioh</a><script async src="https://platform.twitter.com/widgets.js"
 charset="utf-8"></script>
+
+<!--
 <a href="https://twitter.com/michioh?ref_src=twsrc%5Etfw"
 class="twitter-follow-button" data-show-count="false">Follow @michioh</a><script
 async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+-->
 
 ## Overview
 
