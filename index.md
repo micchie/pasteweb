@@ -159,8 +159,8 @@ loop before poll() in PASTE, or write() in Linux.
 ### 2. Linux Installation
 ### 2.1 Compile
 
-1. Download [netmap implementation](https://https://github.com/micchie/netmap/tree/paste)
-2. Follow the instructions in [LINUX/README](https://github.com/luigirizzo/netmap/blob/master/LINUX/README) but add `--enable-stack` on `configure`.
+1. Download [netmap implementation](https://https://github.com/micchie/netmap)
+2. Follow the instructions in [LINUX/README](https://github.com/micchie/netmap/blob/paste/LINUX/README) but add `--enable-stack` on `configure`.
 
 ### 2.2 System configuration
 ### 2.2.1 NIC
@@ -188,7 +188,7 @@ or something to GRUB argument.
 ### 3.1 Compile
 
 1. Prepare [FreeBSD source tree](https://github.com/freebsd/freebsd) in your system (we assume `/usr/src`)
-2. Download [netmap implementation](https://https://github.com/micchie/netmap/tree/paste) (e.g., in your home directory)
+2. Download [netmap implementation](https://github.com/micchie/netmap) (e.g., in your home directory)
 3. Copy `netmap/sys/net/*` to `/usr/src/sys/net/` and `netmap/sys/dev/netmap/netmap*`  to `/usr/src/sys/dev/netmap/`
 4. Edit `/usr/src/sys/conf/files` to contain following lines
 ```
