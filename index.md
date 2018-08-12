@@ -159,7 +159,7 @@ loop before poll() in PASTE, or write() in Linux.
 ### 2. Linux Installation
 ### 2.1 Compile
 
-1. Download [netmap implementation](https://https://github.com/micchie/netmap)
+1. Download [netmap implementation](https://github.com/micchie/netmap)
 2. Follow the instructions in [LINUX/README](https://github.com/micchie/netmap/blob/paste/LINUX/README) but add `--enable-stack` on `configure`.
 
 ### 2.2 System configuration
