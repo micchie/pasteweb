@@ -59,6 +59,9 @@ convert -density 200 -quality 100 -resize 100\% ./paste-rpc.pdf ./paste-rpc.png
 The first graph shows RPC-like workload where the Linux client transmits a 44
 byte data and receives 151 byte of response (includes 64 byte of contents after
 the HTTP OK header) over persistent TCP connections.
+[Here](./paste-rpc-fbsd.png) is the same test with FreeBSD (the overall
+performance is lower than Linux, but I think it is my misconfiguration. I will
+update results ASAP).
 
 ![paste-wal](./paste-wal.png)
 The second graph shows Write-Ahead Logging workload where the client transmits 1156 byte of message
