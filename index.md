@@ -157,7 +157,7 @@ loop before poll() in PASTE, or write() in Linux.
 
 ### 1. Supported OSes
 
-- [Linux 4.6 to 4.15 (ixgbe, i40e NICs) or 4.18 (e1000 NIC)](https://www.kernel.org/) (4.14 is recommended)
+- [Linux 4.6 to 4.18](https://www.kernel.org/) (4.14 is recommended)
 - [FreeBSD CURRENT](https://github.com/freebsd/freebsd)
 
 ### 2. Linux Installation
