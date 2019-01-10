@@ -173,7 +173,8 @@ As explained in [netmap usage](https://github.com/luigirizzo/netmap/blob/master/
 disable all the offload settings. But for PASTE, please enable TX checksum offloading.
 You can do so like `ethtool -K eth1 tx-checksum-ip-generic on` (ixgbe and e1000) or `ethtool -K
 eth1 tx-checksum-ipv4 on` (i40e). It doesn't really enable checksum offloading
-but is needed for internal reasons.
+(except for i40e case which does actually offload checksum to HW) but is needed
+for internal reasons.
 
 ### 2.2.2 Linux kernel
 
@@ -187,6 +188,49 @@ configuration](https://gist.github.com/micchie/07a8b5482bcdb8ed8eb9ae63e92d140e)
 See [here](http://pmem.io/2016/02/22/pm-emulation.html).
 In short, pass `memmap=8G!24G` (reserve 8GB at 24GB offset of DRAM)
 or something to GRUB argument.
+
+### 2.4 Example setting
+
+Here is an example to configure with a single NIC queue.
+These steps worked in CloudLab.
+
+```
+cd netmap
+make distclean
+./configure  --disable-generic --enable-extmem --enable-vale --enable-stack --drivers=ixgbe,i40e --no-ext-drivers=ixgbe,i40e
+make
+
+cd libnetmap
+gcc -c nmreq.c -I../sys -DLIB
+ar rcs libnetmap.a nmreq.o
+
+# install modules
+sudo modprobe -r ixgbe
+sudo modprobe -r i40e
+sudo rmmod netmap
+sudo insmod netmap.ko
+sudo modprobe mdio
+sudo insmod ixgbe/ixgbe.ko
+sudo insmod i40e/i40e.ko
+
+# increase maximum object numbers
+sudo echo 16 > /sys/module/netmap/parameters/priv_if_num
+sudo echo 160 > /sys/module/netmap/parameters/priv_ring_num
+sudo echo 640000 > /sys/module/netmap/parameters/priv_buf_num
+sudo echo 33024 > /sys/module/netmap/parameters/priv_ring_size
+
+# configure NIC
+sudo ip link set enp6s0f0 up
+sudo ip link set enp6s0f0 promisc on
+sudo ethtool -A enp6s0f0 autoneg off tx off rx off
+sudo ethtool -K enp6s0f0 tx off rx off tso off lro off
+sudo ethtool -K enp6s0f0 gso off gro off
+sudo ethtool -K enp6s0f0 tx-checksum-ip-generic on # for i40e, use 's/-generic/v4/'
+sudo ethtool -L enp6s0f0 combined 1 # single NIC queue
+sudo ethtool -C enp6s0f0 rx-usecs 0 # set to 1022 if you use busy polling with ixgbe
+sudo ethtool -C enp6s0f0 adaptive-rx off adaptive-tx off rx-usecs 0 tx-usecs 0 rx-usecs-irq 0 tx-usecs-irq 0 rx-frames 0 tx-frames 0 # i40e specific
+sudo ip addr add 10.10.1.2/24 dev enp6s0f0
+```
 
 ### 3. FreeBSD Installation
 ### 3.1 Compile
