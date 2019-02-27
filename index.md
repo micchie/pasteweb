@@ -157,7 +157,8 @@ loop before poll() in PASTE, or write() in Linux.
 
 ### 0. Live Image
 
-You can [setup a VM with PASTE installed](https://github.com/micchie/paste-demo).
+Contents below explain how to install PASTE in general, but
+you can also [setup a VM with PASTE installed](https://github.com/micchie/paste-demo).
 It also contains Linux kernel configuration and NIC setup script, which might be
 a useful reference when setting up PASTE in real machines.
 
