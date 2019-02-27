@@ -155,9 +155,15 @@ loop before poll() in PASTE, or write() in Linux.
 
 ## Getting started
 
+### 0. Live Image
+
+You can [setup a VM with PASTE installed](https://github.com/micchie/paste-demo).
+It also contains Linux kernel configuration and NIC setup script, which might be
+a useful reference when setting up PASTE in real machines.
+
 ### 1. Supported OSes
 
-- [Linux 4.6 to 4.18](https://www.kernel.org/) (4.14 is recommended)
+- [Linux 4.6 to 5.0](https://www.kernel.org/) (4.14 is recommended)
 - [FreeBSD CURRENT](https://github.com/freebsd/freebsd)
 
 ### 2. Linux Installation
