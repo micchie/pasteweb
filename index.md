@@ -176,7 +176,7 @@ a useful reference when setting up PASTE in real machines.
 ### 2.2 System configuration
 ### 2.2.1 NIC
 
-As explained in [netmap usage](https://github.com/luigirizzo/netmap/blob/master/LINUX/README),
+As explained in [netmap usage](https://github.com/luigirizzo/netmap/blob/master/LINUX/README.md),
 disable all the offload settings. But for PASTE, please enable TX checksum offloading.
 You can do so like `ethtool -K eth1 tx-checksum-ip-generic on` (ixgbe and e1000) or `ethtool -K
 eth1 tx-checksum-ipv4 on` (i40e). It doesn't really enable checksum offloading
