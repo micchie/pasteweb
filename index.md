@@ -164,7 +164,7 @@ a useful reference when setting up PASTE in real machines.
 
 ### 1. Supported OSes
 
-- [Linux 4.6 to 5.0](https://www.kernel.org/) (4.14 is recommended)
+- [Linux 4.6 to 5.0](https://www.kernel.org/) (4.14 or higher is recommended)
 - [FreeBSD CURRENT](https://github.com/freebsd/freebsd)
 
 ### 2. Linux Installation
