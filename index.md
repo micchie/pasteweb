@@ -25,6 +25,10 @@ at [USENIX NSDI 2018](https://www.usenix.org/conference/nsdi18)
 [Slides](https://www.bsdcan.org/2018/schedule/attachments/454_BSDCan-PASTE.pdf)
 and [presentation](https://youtu.be/y_F-8HijfOA) at [BSDCan](https://www.bsdcan.org/2018/)
 
+[Code (Sec. 3 in this page for instructions)](https://github.com/micchie/netmap)
+
+[CloudLab profile (search for PASTE)](https://cloudlab.us)
+
 <!--[Slides at Dagstuhl seminar](https://www.usenix.org/conference/nsdi18/presentation/honda)-->
 
 ## Reference
