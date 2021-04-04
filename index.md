@@ -159,14 +159,7 @@ loop before poll() in PASTE, or write() in Linux.
 
 ## Getting started
 
-### 0. Live Image
-
-Contents below explain how to install PASTE in general, but
-you can also [setup a VM with PASTE installed](https://github.com/micchie/paste-demo).
-It also contains Linux kernel configuration and NIC setup script, which might be
-a useful reference when setting up PASTE in real machines.
-
-### 1. CloudLab
+### 1. CloudLab (obsoleted)
 
 [CloudLab](https://www.cloudlab.us/) is the most recommended method to try out PASTE.
 Simply search for PASTE from the public profile list, and instantiate it.
@@ -174,8 +167,8 @@ The profile description contains instructions.
 
 ### 2. Supported OSes
 
-- [Linux 4.6 to 5.7](https://www.kernel.org/) (4.14 or higher is recommended)
-- [FreeBSD CURRENT](https://github.com/freebsd/freebsd)
+- [Linux 4.6 to 5.10](https://www.kernel.org/) (5.9 or higher is recommended)
+- [FreeBSD 14-CURRENT](https://github.com/freebsd/freebsd)
 
 ### 3. Linux Installation
 ### 3.1 Compile
