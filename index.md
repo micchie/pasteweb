@@ -45,7 +45,7 @@ For further information and to refer to PASTE, please use following entry:
 
 ## Contact
 
-Michio Honda (Email: first.last@ed.ac.uk, Twitter: @michioh)
+Michio Honda (Email: first.last@ed.ac.uk)
 
 ## Performance
 
@@ -167,21 +167,21 @@ The profile description contains instructions.
 
 ### 2. Supported OSes
 
-- [Linux 4.6 to 5.10](https://www.kernel.org/) (5.9 or higher is recommended)
+- [Linux 4.6 to 5.11](https://www.kernel.org/) (5.9 or higher is recommended)
 - [FreeBSD 14-CURRENT](https://github.com/freebsd/freebsd)
 
 ### 3. Linux Installation
 ### 3.1 Compile
 
-1. Download [netmap implementation](https://github.com/micchie/netmap)
-2. Follow the instructions in [LINUX/README](https://github.com/micchie/netmap/blob/paste/LINUX/README) but add `--enable-stack`, `--enable-extmem`, `--disable-ptnetmap` and `--disable-generic` on `configure`.
+1. Download [netmap implementation](https://github.com/micchie/paste)
+2. Follow the instructions in [LINUX/README](https://github.com/micchie/paste/blob/paste/README) but add `--enable-paste`, `--enable-extmem`, `--disable-ptnetmap` and `--disable-generic` on `configure`.
 
 ### 3.2 Kernel and driver configuration
 
 As explained in [netmap usage](https://github.com/luigirizzo/netmap/blob/master/LINUX/README),
 disable all the offload settings. But for PASTE, please enable TX checksum offloading.
 You can do so like `ethtool -K eth1 tx-checksum-ip-generic on` (ixgbe and e1000) or `ethtool -K
-eth1 tx-checksum-ipv4 on` (i40e). Only i40e cases actually do offloading, but it is anyways needed for internal reason.
+eth1 tx-checksum-ipv4 on` (i40e). Only i40e cases actually do hardware offloading, but it is anyways needed for internal reason.
 
 Most modern Linux distributions, such as Debian 10.4 and Ubuntu 20.04, do not
 need additional configuration to activate PM support.
@@ -206,7 +206,7 @@ Here is an example to compile and setup PASTE with ixgbe and i40e drivers.
 ```
 cd netmap
 make distclean
-./configure --disable-ptnetmap --disable-generic --enable-stack --enable-extmem --drivers=i40e,ixgbe,e1000 --no-ext-drivers=i40e,ixgbe,e1000
+./configure --disable-ptnetmap --disable-generic --enable-paste --enable-extmem --drivers=i40e,ixgbe,e1000 --no-ext-drivers=i40e,ixgbe,e1000
 make
 
 # install modules
@@ -258,7 +258,7 @@ wrk -d 2 -t 100 -c 100 http://10.10.1.1:60000
 4. Edit `/usr/src/sys/conf/files` to contain following lines
 ```
 dev/netmap/netmap_bdg.c optional netmap
-dev/netmap/netmap_stack.c optional netmap
+dev/netmap/netmap_paste.c optional netmap
 ```
 5. Compile the kernel in the normal way (see [FreeBSD handbook](https://www.freebsd.org/doc/handbook/kernelconfig-building.html))
 
