@@ -178,7 +178,7 @@ The profile description contains instructions.
 
 ### 3.2 Kernel and driver configuration
 
-As explained in [netmap usage](https://github.com/luigirizzo/netmap/blob/master/LINUX/README),
+As explained in [netmap usage](https://github.com/luigirizzo/netmap/blob/master/LINUX/README.md),
 disable all the offload settings. But for PASTE, please enable TX checksum offloading.
 You can do so like `ethtool -K eth1 tx-checksum-ip-generic on` (ixgbe and e1000) or `ethtool -K
 eth1 tx-checksum-ipv4 on` (i40e). Only i40e cases actually do hardware offloading, but it is anyways needed for internal reason.
